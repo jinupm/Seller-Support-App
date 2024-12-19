@@ -5,6 +5,7 @@ import com.springmvc.demo.model.Merchant;
 import com.springmvc.demo.model.MerchantProductRes;
 import com.springmvc.demo.model.Product;
 import com.springmvc.demo.service.MerchantService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -29,7 +30,7 @@ public class MerchantController {
 
 
     @PostMapping("register")
-    public ResponseEntity<Merchant> register(@RequestBody Merchant merchant) {
+    public ResponseEntity<Merchant> register(@Valid @RequestBody Merchant merchant) {
         /*        System.out.println("Password configured in . properties file = " + password);*/
         Merchant registeredMerchant = merchantService.register(merchant);
 

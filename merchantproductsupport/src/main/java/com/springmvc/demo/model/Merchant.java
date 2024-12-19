@@ -1,6 +1,7 @@
 package com.springmvc.demo.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,6 +21,8 @@ public class Merchant {
 
     private String accountNumber;
     private int age;
+
+    @Size(min=2, message = "Name should have at least 2 characters")
     private String merchantUsername;
     private String mobNo;
     private String email;
